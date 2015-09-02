@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
 <!DOCTYPE html>
+<meta charset="utf-8">
 <title>Battery History</title>
 <script src="amcharts/amcharts.js"></script>
 <script src="amcharts/serial.js"></script>
