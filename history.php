@@ -33,7 +33,7 @@ $cMediumDrain = "f39c12";
 $cLowDrain = "3498db";
 
 $history = @json_decode(@file_get_contents("cache/history-b"), true);
-$num = count($course);
+$num = count($history);
 
 if (!$num) die("No entries");
 
@@ -42,7 +42,7 @@ var time = new Date(0), chartData = [];
 // data: " . $num;
 $prev = 0;
 for ($i = 0; $i < $num; $i++) {
-	$v = $course[$i];
+	$v = $history[$i];
 	if (!isset($_GET["all"]) && $v[0] < time()-3600*24*3) continue;
 	
 	$nextV = $i < $num - 1 ? $history[$i + 1] : [ null, null, null ];
