@@ -10,4 +10,4 @@ deviceinfo.php?g=b gets the battery.
 
 history.php contains a line chart of your battery history.
 
-![Preview of history](http://i.dv.tl/Screenshot_2015-09-02_at_22.25.40.png)
+![Preview](http://i.dv.tl/Screenshot_2015-09-02_at_22.25.40.png)
