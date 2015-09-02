@@ -32,7 +32,7 @@ $cHighDrain = "e74c3c";
 $cMediumDrain = "f39c12";
 $cLowDrain = "3498db";
 
-$history = @json_decode(@file_get_contents("cache/history-b"), 1);
+$history = @json_decode(@file_get_contents("cache/history-b"), true);
 $num = count($course);
 
 if (!$num) die("No entries");
