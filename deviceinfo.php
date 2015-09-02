@@ -39,10 +39,10 @@ if (isset($_GET["g"])) {
 	if (!isset($_GET["p"]) || $_GET["p"] != $PASSWORD) die("invalid password");
 	
 	if (in_array($set, $infos)) {
-		// call format function if exist
-		if (isset($format[$set])) $value = $format[$set]($value);
-
 		if (!isset($pattern[$set]) || preg_match($pattern[$set], $value)) {
+			// call format function if exist
+			if (isset($format[$set])) $value = $format[$set]($value);
+
 			file_put_contents("cache/info-" . $set, $value . $charging);
 			
 			// special functions
