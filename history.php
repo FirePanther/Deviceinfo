@@ -41,12 +41,13 @@ $num = count($history);
 if (!$num) die("No entries");
 
 echo "<script>
-var time = new Date(0), chartData = [];
-// data: " . $num;
-$prev = 0;
+// data: $num
+";
+
+$chartData = [];
 for ($i = 0; $i < $num; $i++) {
 	$v = $history[$i];
-	if (!isset($_GET["all"]) && $v[0] < time()-3600*24*3) continue;
+	if (!isset($_GET["all"]) && $v[0] < time() - 3600 * 24 * 3) continue;
 	
 	$nextV = $i < $num - 1 ? $history[$i + 1] : [ null, null, null ];
 	
@@ -67,16 +68,14 @@ for ($i = 0; $i < $num; $i++) {
 		else $color = $cStandby;
 	} else $drainPerMinute = 0;
 	
-	echo '
-chartData.push({
-	lineColor: "#'.$color.'",
-	drain: "'.round($drainPerMinute, 2).'%/min",
-	time: '.($v[0] * 1000).', // '.date("d.m. H:i", $v[0]).'
-	battery: '.$v[1].'
-});';
+	$chartData[] = "{c:'#$color'," .
+		"d:'" . round($drainPerMinute, 2) . "%/min'," .
+		"t:" . ($v[0] * 1000) . "," .
+		"b:{$v[1]}}";
 }
 ?>
-var chart = AmCharts.makeChart("chartdiv", {
+var chartData = [<?php echo implode(",", $chartData); ?>],
+	chart = AmCharts.makeChart("chartdiv", {
 	type: "serial",
 	theme: "light",
 	marginRight: 80,
@@ -91,29 +90,29 @@ var chart = AmCharts.makeChart("chartdiv", {
 	}],
 	mouseWheelZoomEnabled: true,
 	graphs: [{
-		id: "g1",
-		balloonText: "[[category]]<br/><b style='font-size:14px;'>battery: [[value]]%</b> ([[drain]])",
+		id: "g",
+		balloonText: "[[category]]<br/><b style='font-size:14px;'>battery: [[value]]%</b> ([[d]])",
 		bullet: "round",
 		bulletBorderAlpha: 1,
 		bulletBorderThickness: 1,
 		fillAlphas: 0.3,
-		fillColorsField: "lineColor",
-		lineColorField: "lineColor",
+		fillColorsField: "c",
+		lineColorField: "c",
 		lineThickness: 3,
-		title: "FirePhone Battery History",
-		valueField: "battery",
+		title: "Battery History",
+		valueField: "b",
 		useLineColorForBulletBorder: true
 	}],
 	chartScrollbar: {
 		autoGridCount: true,
-		graph: "g1",
+		graph: "g",
 		scrollbarHeight: 60
 	},
 	chartCursor: {
 		categoryBalloonDateFormat: "DD. MMM, JJ:NN",
 		cursorPosition: "mouse"
 	},
-	categoryField: "time",
+	categoryField: "t",
 	categoryAxis: {
 		minPeriod: "mm",
 		parseDates: true,
