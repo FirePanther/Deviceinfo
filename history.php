@@ -78,14 +78,13 @@ var chartData = [<?php echo implode(",", $chartData); ?>],
 	chart = AmCharts.makeChart("chartdiv", {
 	type: "serial",
 	theme: "light",
-	marginRight: 80,
-	autoMarginOffset: 20,
-	marginTop: 7,
+	marginTop: 0,
 	dataProvider: chartData,
 	valueAxes: [{
-		maximum: 100,
 		axisAlpha: 0.2,
 		dashLength: 1,
+		maximum: 100,
+		minimum: 0,
 		position: "left"
 	}],
 	mouseWheelZoomEnabled: true,
@@ -93,15 +92,11 @@ var chartData = [<?php echo implode(",", $chartData); ?>],
 		id: "g",
 		balloonText: "[[category]]<br/><b style='font-size:14px;'>battery: [[value]]%</b> ([[d]])",
 		bullet: "round",
-		bulletBorderAlpha: 1,
-		bulletBorderThickness: 1,
 		fillAlphas: 0.3,
 		fillColorsField: "c",
 		lineColorField: "c",
 		lineThickness: 3,
-		title: "Battery History",
-		valueField: "b",
-		useLineColorForBulletBorder: true
+		valueField: "b"
 	}],
 	chartScrollbar: {
 		autoGridCount: true,
@@ -114,14 +109,11 @@ var chartData = [<?php echo implode(",", $chartData); ?>],
 	},
 	categoryField: "t",
 	categoryAxis: {
-		minPeriod: "mm",
-		parseDates: true,
 		axisColor: "#DADADA",
 		dashLength: 1,
-		minorGridEnabled: true
-	},
-	export: {
-		enabled: true
+		minorGridEnabled: true,
+		minPeriod: "mm",
+		parseDates: true
 	}
 });
 
