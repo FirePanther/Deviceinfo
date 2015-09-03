@@ -7,7 +7,7 @@ header("content-type: text/plain; charset=utf-8");
 
 $infos = [ "b"/*battery*/ ];
 $pattern = [
-	"b" => "~^(0\.\d+|1|0)$~" // double 0 - 1
+	"b" => "~^(0\.\d+|1|0|1\.0+)$~" // double 0 - 1
 ];
 $format = [
 	"b" => function($v) {
