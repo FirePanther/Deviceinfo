@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7A2D27F7-5418-4412-B602-872DFA47B106</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FireBattery</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9BFDA7EF1D0F8748A104D070D0B9D82C8E2928EC</key>
+		<string>github.com:FirePanther/iOS-Deviceinfo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>clients/osx/FireBattery/FireBattery.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9BFDA7EF1D0F8748A104D070D0B9D82C8E2928EC</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:FirePanther/iOS-Deviceinfo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9BFDA7EF1D0F8748A104D070D0B9D82C8E2928EC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9BFDA7EF1D0F8748A104D070D0B9D82C8E2928EC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-API</string>
+		</dict>
+	</array>
+</dict>
+</plist>
